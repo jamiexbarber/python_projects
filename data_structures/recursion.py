@@ -37,7 +37,7 @@ def TriangularNumber(N):
     else:
         return N + TriangularNumber(N-1)
 
-'''Accepts a string and returns the index of the first x character found in the string'''
+'''Accepts a string and returns the index of the first x character found in the string (assuming there's always at least 1 x)'''
 def FindX(array, index = 0):
     if (len(array) == 1):
         return index
