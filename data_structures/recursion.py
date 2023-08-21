@@ -47,14 +47,28 @@ def FindX(array, index = 0):
         else:
             index+=1
             return FindX(array[1:],index)
-
-
         
+'''Chapter 13 - Memoization (pass in a hash into the recursive function, save into variable)
+ or Bottom-Up - use a for loop or some other method outside of recursion'''
+
+'''Optimize sum adding array to stop using (original called fn 3 times) '''
+'''Note the position of the highest number in the array(to set a sum over 100) matters'''
+def add_until_100(array):
+    if len(array) == 1:
+        return array[0]
+    else:
+        total = add_until_100(array[1:])
+        if array[0] + total > 100:
+            return total
+        else:
+            return array[0] + total 
+               
 charString = ["helllo", "hi", "omg"]
 final = addString(charString)
-evenstr = [2, 7, 0, 5, 3, 8, 16]
+evenstr = [99, 2, 7, 0, 5, 3, 8, 16]
 finale = FindEven(evenstr)
 trig = TriangularNumber(6)
 index = FindX("aaaaxaaax")
+sumofarray = add_until_100(evenstr)
 print("hello")
-print(f'final count:{index}')
+print(f'final count:{sumofarray}')
