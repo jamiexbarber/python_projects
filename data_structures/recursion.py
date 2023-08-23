@@ -62,6 +62,21 @@ def add_until_100(array):
             return total
         else:
             return array[0] + total 
+
+'''Use Memoization to optimize the following code (calls recursive 3x)'''
+def golumb(n, gol_dict = {1:1}):
+    #gol_dict = {}
+    #gol_dict[1] = 1
+
+    m = n-1
+    
+    if m in gol_dict.keys():
+        return gol_dict[m]
+    else:
+        gol_dict[m] = golumb(m)
+    
+    return
+       # return 1 + golumb(n - golumb(golumb(n-1)))
                
 charString = ["helllo", "hi", "omg"]
 final = addString(charString)
@@ -70,5 +85,7 @@ finale = FindEven(evenstr)
 trig = TriangularNumber(6)
 index = FindX("aaaaxaaax")
 sumofarray = add_until_100(evenstr)
+n = 25
+golumb_v = golumb(n)
 print("hello")
-print(f'final count:{sumofarray}')
+print(f'golumb-n({n}) = {golumb_v}')
